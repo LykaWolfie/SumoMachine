@@ -12,14 +12,15 @@ public class PressAndHold : MonoBehaviour {
 	
 	void Update () {
         if (Input.GetMouseButtonDown(0))
-        {
+        {//you're gonna want to store these in a public void function, such that button events can call this easily
             touchStart = Time.time;
             rotateObject = false;
         }
         else if (Input.GetMouseButtonUp(0))
-        {
+		{//you're gonna want to store these in a public void function, such that button events can call this easily
             float delta = Time.time - touchStart;
             float newForce = force * delta;
+			//Try looking up Mathf.Clamp
             if (newForce <= minForce)
             {
                 GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * minForce);
@@ -32,11 +33,12 @@ public class PressAndHold : MonoBehaviour {
             {
                 GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * newForce);
             }
-            rotateObject = true;
-            
+            rotateObject = true;            
         }
+
         if (rotateObject)
-        {
+		{//would be better to transfer this if statement to a new script for modularity
+		//That way, we can disable the PressAndHold script while still having player rotation intact. For debugging purposes...
             transform.Rotate(new Vector3(0, 30, 0) * Time.deltaTime);
         }
 	}

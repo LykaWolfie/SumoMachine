@@ -18,17 +18,6 @@ public class JustPressAndHold : MonoBehaviour {
 		}
 	}
 
-	void Update () {
-		if (Input.GetMouseButtonDown(0))
-		{
-			triggerButtonPressEvents ();
-		}
-		else if (Input.GetMouseButtonUp(0))
-		{
-			triggerButtonReleaseEvents ();
-		}
-	}
-
 	public void triggerButtonPressEvents(){
 		touchStart = Time.time;
 		if (ar != null) {

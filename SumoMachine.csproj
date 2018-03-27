@@ -292,8 +292,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Button.cs" />
-    <Compile Include="Assets\PressAndHold.cs" />
+    <Compile Include="Assets\Our Assets\Scripts\AutoRotate.cs" />
+    <Compile Include="Assets\Our Assets\Scripts\CoinRotate.cs" />
+    <Compile Include="Assets\Our Assets\Scripts\Collide.cs" />
+    <Compile Include="Assets\Our Assets\Scripts\FallingDown.cs" />
+    <Compile Include="Assets\Our Assets\Scripts\JustPressAndHold.cs" />
+    <Compile Include="Assets\Our Assets\Scripts\PressAndHold.cs" />
+    <Compile Include="Assets\Our Assets\Scripts\Spawner.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />

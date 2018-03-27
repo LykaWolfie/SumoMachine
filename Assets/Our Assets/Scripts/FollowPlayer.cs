@@ -9,7 +9,7 @@ public class FollowPlayer : MonoBehaviour {
 
 	void Update () {
 		if (player != null) {
-			transform.position = player.position + Vector3.back * botDistance;	
+			transform.position = player.position + Vector3.back * botDistance + Vector3.left * 0.7f;	
 		}
 	}
 }

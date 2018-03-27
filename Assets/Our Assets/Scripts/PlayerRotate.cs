@@ -8,7 +8,6 @@ public class PlayerRotate : MonoBehaviour {
 	public float minSpinSpeed = 200;		//default min rotation speed
 	[HideInInspector]
 	public float spinSpeed;					//rotation speed that we will edit
-	public float spinDeceleration = 300; 	//deceleration of spin when pressed
 
 	private bool isChargingUp;				//will stay true while button is being pressed
 	private int clockwiseMultiplier; 		// = 1 when spinning clockwise; = -1 when spinning counterclockwise

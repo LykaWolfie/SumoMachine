@@ -8,13 +8,15 @@ public class AutoRotate : MonoBehaviour {
 	public float minSpinSpeed = 200;		//default min rotation speed
 	[HideInInspector]
 	public float spinSpeed;					//rotation speed that we will edit
-	public float spindeceleration = 300; 	//deceleration of spin when pressed
+	public float spinDeceleration = 300; 	//deceleration of spin when pressed
 
 	private bool isChargingUp;				//will stay true while button is being pressed
 	private int clockwiseMultiplier; 		// = 1 when spinning clockwise; = -1 when spinning counterclockwise
 
+	private MeshRenderer mr;
 
 	void Start () {
+		mr = GetComponent<MeshRenderer> ();
 		spinSpeed = maxSpinSpeed;
 		isChargingUp = false;
 		clockwiseMultiplier = 1;			//initially spinning clockwise
@@ -23,7 +25,8 @@ public class AutoRotate : MonoBehaviour {
 	void Update(){
 		transform.Rotate(Vector3.up * spinSpeed * clockwiseMultiplier * Time.deltaTime);	//rotate the player
 		if (isChargingUp) {																	//will slowdown the spin every frame if button is being pressed
-			spinSpeed = Mathf.Clamp (spinSpeed - spindeceleration * Time.deltaTime, minSpinSpeed, maxSpinSpeed); //clamps decelerated speed between min and max spin speeds
+			//spinSpeed = Mathf.Clamp (spinSpeed - spindeceleration * Time.deltaTime, minSpinSpeed, maxSpinSpeed); //clamps decelerated speed between min and max spin speeds
+			spinSpeed = minSpinSpeed;
 		}
 	}
 

@@ -1,12 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class FallingDown : MonoBehaviour {
+
+	public event Action resetScore;
 
     public float height = -10f;
     private Vector3 originalPos;
     private Quaternion originalRot;
+
+
     /*   public float spawnAntiGravity = 20f;
 
   
@@ -48,6 +53,9 @@ public class FallingDown : MonoBehaviour {
         if  (transform.position.y <= height)
         {
             transform.SetPositionAndRotation(originalPos, originalRot);
-        }
+			if (resetScore != null) {
+				resetScore ();
+			}
+		}
     }
 }

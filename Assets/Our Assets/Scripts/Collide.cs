@@ -11,8 +11,10 @@ public class Collide : MonoBehaviour {
         //Debug.Log(points);
         if (other.gameObject.CompareTag("Collectibles"))
         {
-            Destroy(other.gameObject);
-            Spawner.time = 0;
+            other.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            other.gameObject.GetComponent<BoxCollider>().enabled = false;
+            other.gameObject.GetComponent<CoinRotate>().triggerFlag();
+            
             //points++;
 			if (incrementScore != null) {
 				incrementScore ();
